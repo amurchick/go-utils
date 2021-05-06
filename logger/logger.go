@@ -20,11 +20,11 @@ type Logger struct {
 	sync.Mutex
 }
 
-var Log = NewLogger(os.Stdout, LevelDebug)
-
 func NewLogger(out io.Writer, level Levels) *Logger {
 	return &Logger{out: []io.Writer{out}, Level: level, UseColors: true}
 }
+
+var Log = NewLogger(os.Stdout, LevelDebug)
 
 func itoa(buf *[]byte, i int, width int) {
 	var b [20]byte
